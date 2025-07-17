@@ -1,0 +1,672 @@
+@import url('https://fonts.cdnfonts.com/css/ica-rubrik-black');
+/*
+Regra `@import`: Importa uma folha de estilo externa para este arquivo CSS. Aqui, está importando a fonte 'ICA Rubrik Black' de um serviço de fontes. Isso permite que você use essa fonte em seus estilos
+*/
+
+@import url('https://fonts.cdnfonts.com/css/poppins');
+/*
+Importa outra fonte, 'Poppins', também de um serviço de fontes. Isso garante que as fontes personalizadas estejam disponíveis para uso na página
+*/
+
+/* Estilos para o Modal de Boas-Vindas */
+.modal-boas-vindas {
+    position: fixed;
+    z-index: 1001; /* Garante que fique acima da modal de texto, se ambas fossem aparecer */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex; /* Começa como flex para ser visível por padrão */
+    justify-content: center;
+    align-items: center;
+    backdrop-filter: blur(5px);
+}
+
+.modal-boas-vindas .modal-conteudo {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 30px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 600px;
+    border-radius: 8px;
+    position: relative;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    text-align: center; /* Centraliza o texto dentro da modal */
+    animation: fadeIn 0.3s ease-out; /* Reutiliza a animação existente */
+}
+
+.modal-boas-vindas h2 {
+    font-family: 'ICA Rubrik', sans-serif;
+    color: #e36f16;
+    margin-bottom: 15px;
+    font-size: 2.2em; /* Tamanho da fonte para o título */
+}
+
+.modal-boas-vindas p {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.1em;
+    line-height: 1.6;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.redes-sociais-modal {
+    margin-top: 25px;
+    display: flex;
+    justify-content: center;
+    gap: 20px; /* Espaçamento entre os ícones */
+}
+
+.redes-sociais-modal a {
+    color: #7222db; /* Cor dos ícones */
+    font-size: 2.5em; /* Tamanho dos ícones */
+    transition: color 0.3s ease;
+}
+
+.redes-sociais-modal a:hover {
+    color: #e36f16; /* Cor ao passar o mouse */
+}
+
+/* Estilo para o botão de fechar do modal de boas-vindas */
+.fechar-modal-boas-vindas {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    position: absolute;
+    top: 10px;
+    right: 15px;
+}
+
+.fechar-modal-boas-vindas:hover,
+.fechar-modal-boas-vindas:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.banner {
+    /*
+    Estilos aplicados a elementos com a classe `banner`. Este é o contêiner princopal da seção de banner.
+    */
+    width: 100%;
+    /*
+    Define a largura do banner para 100% de largura do seu contêiner pai.
+    */
+    height: 100vh;
+    /*
+    Define a altura do banner para 100% da altura do viewport (altura visível da janela do navegador).
+    */
+    text-align: center;
+    /*
+    Centraliza horizontalmente o texto e elementos em linha dentro do banner.
+    */
+    overflow: hidden;
+    /*
+    Esconde qualquer conteúdo que transborde os limites do elemento. Isso é crucial para evitar barras de rolagem indesejadas e para conter elementos que se movem fora do banner.
+    */
+    position: relative;
+    /*
+    Define o posicionamento do banner como `relative`. Isso é importante porque os elementos filhos com `position: absolute` dentro do bannerserão posicionados em relação a este elemento `relative` (seu pai mais próximo posicionado)
+    */
+}
+
+.banner .slider {
+    /*
+    Estilos aplicados a elementos com a classe `slider` que são descendentes de um elemento com a classe `banner`. Este é o contêiner que segura todos os items de slider 3D.
+    */
+    position: absolute;
+    /*
+    Posicionamento absoluto: O elemento é removido do fluxo normal do documento e posicionado em relação ao seu contêiner posicionado mais próximo (neste caso, o `banner` com `position: relative`
+    */
+    width: 200px;
+    /*
+    Largura fica do slider.
+    */
+    height: 250px;
+    /*
+    Altura fixa do slider.
+    */
+    top: 10%;
+    /*
+    Posiciona o topo do slide a 10% da altura do `.banner`.
+    */
+    left: calc(50% - 100px);
+    /*
+    Posiciona o lado esquerdo do slider. `calc(50% - 100px)`: Move o elemento 50% para a direita do contêiner pai e depois o move para a esquerda em metade de sua própria largura (100px, pois a largura é 200px), centralizando-o horizontalmente.
+    */
+    transform-style: preserve-3d;
+    /*
+    Propriedade CSS 3D: Garante que os elementos 3D (os `item`s do slider) sejam renderizados em espaço 3D contínuo, e não achatados em 2D. Essencial para efeitos 3D.
+    */
+    transform: perspective(1000px);
+    /*
+    Propriedade `transform` com função `perspective`: Aplica uma perspectiva 3D ao elemento. Um valor menor cria uma perspectiva mais "forte"  (mais distorção 3D); um valor maior cria uma perspectiva mais "fraca". Isso simula como objetos parecem mais distantes ou próximos no espaço 3D.
+    */
+    animation: autoRun 20s linear infinite;
+    /*
+    Aplica uma animação chamada `autoRun`.
+    -`autoRun`: Nome da animação (definida mais abaixo com `@keyframes`).
+    -`20s`: Duração de uma única interação da animação (20 segundos).
+    -`linear`: Velocidade da animação (constante do início ao fim).
+    -`infinite`: A animação se repetirá indefinidamente.
+    */
+    z-index: 2;
+    /*
+    Define a ordem de empilhamento do elemento. Elementos com `z-index` maior aparecem na frente de elementos com `z-index` menor (em relação a elementos irmãos posicionados).
+    Aqui, o slide aparecerá acima do conteúdo (que tem `z-index: 1`).
+    */
+}
+
+@keyframes autoRun {
+
+    /*
+    Define a animação chamada `autoRun`. `@keyframes` permite criar sequências de animação com diferentes estágios.
+    */
+    from {
+        /*
+        Estilos no início da animação (0%).
+        */
+        transform: perspective(1000px) rotateX(-16deg) rotateY(0deg);
+        /*
+        Define a transfomação inicial.
+        -`perspective(1000px)`: Mantém a mesma perspectiva 3D.
+        -`rotateX(-16deg)`:  Rotaciona o slider em torno do eixo X (horizontal) em -16 graus, fazendo-o inclinar um pouco para cima.
+        -`rotateY(0deg)`: Rotação inicial de 0 graus no eixo Y (vertical).
+        */
+    }
+
+    to {
+        /*
+        Estilos no final da animação (100%).
+        */
+        transform: perspective(1000px) rotateX(-16deg) rotateY(360deg);
+        /*
+        Define a transformação final.
+        -`rotateY(360deg)`: Rotaciona o slider completamente em 360 graus em torno do eixo Y. Isso cria o efeito de rotação contínua do carrossel 3D.
+        */
+    }
+}
+
+.banner .slider .item {
+    /*
+    Estilo aplicado a elementos com a classe `item` que são descendentes de `.slider` e `.banner`. Cada `item` representa uma das imagens no carrossel 3D.
+    */
+    position: absolute;
+    /*
+    posicionamento absoluto em relação ao `.slider` (que é seu pai posicionado). Isso permite que os itens sejam empilhados uns sobre os outros e depois transformados em 3D.
+    */
+    inset: 0 0 0 0;
+    /*
+    Propriedade shorthand para `top: 0; right: 0; bottom: 0; left: 0;`. Faz com que cada item ocupe 100% da largura e altura de seus contêiner pai (`.slider`).
+    */
+    transform:
+        /*
+    Aplica uma série de transformações 3D a cada item.
+    */
+        rotateY(calc((var(--position) - 1) * (360 / var(--quantity)) * 1deg))
+        /*Rotaciona cada item em torno do eixo Y.
+    -`var(--position)`: Valor da variável CSS `--position` definida no HTML para cada item (1 a 10).
+    -`var (--quantity)`: Valor da variável CSS `--quantity`definida no HTML para o slide (10).
+    A fórmula `(var(--position) - 1) * (360 / var(--quantity)) * 1deg` distribui os itens uniformemente em um círculo.
+    Ex: 
+    */
+        translateZ(550px);
+    /*
+    Move item ao longo do eixo Z (profundidade) em 550 pixels  pra frente. Isso "empurra" os itens para fora do centro do slider, criando um cilindo 3D de imagens.
+    */
+}
+
+.banner .slider .item img {
+    /*
+    Estilos aplicados às imagens dentro dos itens do slider.
+    */
+    width: 85%;
+    /*
+    Largura da imagem é 85% do seu contêinder pai (`.item`).
+    */
+    height: 85%;
+    /*
+    Altura da imagem é 85% do seu contêiner pai (`.item`).
+    */
+    object-fit: cover;
+    /*
+    Define como a imagem será redimensionada para preencher completamente o contêiner, cortando partes se necessário, para manter a proporção.
+    */
+    cursor: pointer;
+}
+
+.banner .content {
+    /*
+    Estilos aplicados ao contêiner de conteúdo principal (`.content`) dentro do banner. Este contém o título "CSS ONLY" e as informações do autor.
+    */
+    position: absolute;
+    /*
+    Posicionamento absoluto em relação ao `.banner` (seu pai posicionado).
+    */
+    bottom: 0;
+    /*
+    Alinha a parte inferior do `.content` para a parte inferior do `.banner`.
+    */
+    left: 50%;
+    /*
+    Move o lado esquerdo do `.content` para o centro do `.banner`.
+    */
+    transform: translateX(-50%);
+    /*
+    Move o elemento para a esqueda em -50% da sua própria largura, centralizando-o horizontalmente.
+    */
+    width: min(1400px, 100vw);
+    /*
+    Define a largura do contepudo. `min(1400px, 100vw)`: A largura será o menor valor entre 1400px e 100vw de largura da viewport. Isso limita a largura máxima em telas grandes e garante que ela ocupe 100% em telas menores.
+    */
+    height: max-content;
+    /*
+    Define a altura para ser tão grande quanto o conteúdo exige.
+    */
+    padding-bottom: 100px;
+    /*
+    Adiciona um preenchimento inferior de 100px.
+    */
+    display: flex;
+    /*
+    Define o modelo de layout flexbox para o `.content`. Isso permite organizar seus itens filhos de forma flexível.
+    */
+    flex-wrap: wrap;
+    /*
+    Permite que os itens flex (`h1`, `author`,`model`) quebrar a próxima linha se não houver espaço suficiente em uma única linha. Essencial para responsividade.
+    */
+    justify-content: space-between;
+    /*
+    Distribui o espaço extra entre os itens flex, O primeiro item fica no início, o último no final, e o espaço é distribuído igualmente entre os demais.
+    */
+    align-items: center;
+    /*
+    Alinha os itens flex no centro ao longo do eixo transversal (vertival, neste caso, já que o eixo prprincipal é hrizontal por padrão).
+    */
+    z-index: 1;
+    /*
+    Define a ordem de empilhamento. O conteúdo ficará abaixo do slide (`z-index: 2`).
+    */
+}
+
+.banner .content h1 {
+    /*
+    Estilos para o cabeçalho `<h1>` dentro do `.content`.
+    */
+    font-family: 'ICA Rubrik';
+    /*
+    Define a família da fonte para `ICA Rubrik`(importada no início do CSS).
+    */
+    font-size: 13em;
+    /*
+    Define omtamanho da fonte. `16em` é um tamanho muito grande, relativo ao tamanho da fonte padrão.
+    */
+    line-height: 1em;
+    /*
+    Define a altura da linha. `1em` significa que a altura da linha é igual ao tamanho da fonte.
+    */
+    color: #e36f16;
+    /*
+    Define a cor do texto para um cinza escuro.
+    */
+    position: relative;
+    /*
+    Define o posicionamento como `relative`. Isso é necessário para que o pseudo-elemento `::after` (que criará o contorno) possa ser posicionado absolutamente em relação a este `<h1>`.
+    */
+}
+
+.banner .content h1::after {
+    /*
+    Pseudo-elemento `::after`: Cria um elemento virtual *depois* do conteúdo do `<h1>`. É usado aqui pra criar um efeito de contorno no texto.
+    */
+    position: absolute;
+    /*
+    Posicionamento absoluto em relação ao `<h1>` pai (`position: relative`).
+    */
+    inset: 0 0 0 0;
+    /*
+    Ocupa a mesma posição e dimensão do `<h1>` pai.
+    */
+    content: attr(data-content);
+    /*
+    Define o conteúdo do pseudo-elemento para o valor do atributo `data-content` do `<h1>` pai. No HTML, `data-content="CSS ONLY", então este pseudo-elemento também terá o texto "CSS ONLY"
+    */
+    z-index: 2;
+    /*
+    Garante que este pseudo-elemento esteja acima do texto original do `<h1>`.
+    */
+    -webkit-text-stroke: 3px #ffffff;
+    /*
+    Propriedade proprietária (prefixo `-webkit-` para navegadores baseados em Webkit como Chrome, Safari). Cria um contorno de 2px de largura com a cor cinza clara (`#d2d2d2`) ao redor do texto.
+    */
+    color: transparent;
+    /*
+    Define a cor do texto do pseudo-elemento como transparente. Isso significa que apenas o contorno (`-webkit-text-stroke`) será visível, criando o efeito de "texto vazado" ou contornado.
+    */
+}
+
+.banner .content .author {
+    /*
+    Estilo para contêiner de informações do autor.
+    */
+    color: #ffffff;
+    text-shadow: 0 1px 2px #000;
+    font-family: Poppins;
+    /*
+    Define a família da fonte para 'Poppins' (importada).
+    */
+    text-align: right;
+    /*
+    Alinha o texto à direita dentro do contêiner do autor
+    */
+    max-width: 200px;
+    /*
+    Limita a largura máxima do contêiner do autor a 200px.
+    */
+    z-index: 3;
+    /*
+    Define a ordem de empilhamento.
+    */
+
+}
+
+/* Estilos para os links dentro da div .author */
+.banner .content .author a {
+    color: #e1b2fe;
+    /* Define a cor do texto para branco puro */
+    text-decoration: none;
+    /* Remove o sublinhado padrão dos links */
+}
+
+/* Garante que os links continuem brancos mesmo após serem visitados */
+.banner .content .author a:visited {
+    color: #e1b2fe;
+}
+
+/* Garante que os links continuem brancos quando o mouse passar por cima (hover) */
+.banner .content .author a:hover {
+    color: #e1b2fe;
+    /* Você pode adicionar outros efeitos aqui para o hover, como um leve text-shadow ou underline */
+    /* text-decoration: underline; */
+    /* Opcional: Adiciona sublinhado de volta no hover */
+}
+
+/* Garante que os links continuem brancos quando estiverem ativos (clicando) */
+.banner .content .author a:active {
+    color: #e1b2fe;
+}
+
+.banner .content h2 {
+    /*
+    Estilo para o cabeçalho `<h2>` dentro do `.author`.
+    */
+    font-size: 2em;
+    /*
+    Define o tamanho da fonte para 3 vezes o tamanho da fonte padrão do elemento pai.
+    */
+}
+
+.banner .content .model {
+    /*
+    Estilo para o `div` com a classe `model`. Este elemento é usado para exibir uma imagem de fundo que atua com um "modelo" visual.
+    */
+    background-image: url(images/model.png);
+    /*
+    Define a imagem de fundo para este elemento.
+    */
+    width: 100%;
+    /*
+    Define a largura para 100% do seu contêiner pai (`.content`).
+    */
+    height: 75vh;
+    /*
+    Define a altura para 75% da altura da viewport.
+    */
+    position: absolute;
+    /*
+    Posicionamento absoluto em relação ao `.content` (que é seu pai posicionado, devido ao `display: flex` e `align-items: center` combinados com as media queries que mudam o comportamento). No entanto, se o `.content` não fosse posicionado, seria em relação ao `body`. Neste caso, a intenção é que ele se posicione na parte inferior da tela, abaixo do conteúdo principal, como uma imagem de fundo grande.
+    */
+    bottom: 0;
+    /*
+    Alinha a parte inferior do `.model`com a parte inferior do `.content` (ou body se não posicionado).
+    */
+    left: 0;
+    /*
+    Alinha o lado esquerdo do `.model` com o lado esquerdo do `.content` (ou body).
+    */
+    background-size: auto 130%;
+    /*
+    Redimensiona a imagem de fundo.
+    -`auto`: A largura se ajusta automaticamente para manter a proporção.
+    -`130%`: A altura da imagem será 130% de altura do elemento `.model`. Isso faz com que a imagem seja maior que o elemento, permitido que ela seja cortada e preencha a área.
+    */
+    background-repeat: no-repeat;
+    /*
+    Impede que a imagem de fundo de fundo se repita.
+    */
+    background-position: top center;
+    /*
+    Posiciona a imagem de fundo no topo e centralizada horizontalmente dentro do elemento.
+    */
+    z-index: 1;
+    /*
+    Define a ordem de empilhamento.
+    */
+}
+
+@media screen and (max-width: 1023px) {
+
+    /*
+    Media Query: Aplica os estilos dentro deste bloco apenas quando a largura da viewport for igual ou menor que 1023 pixels. Isso é usado para adaptar o layout para telas de tablet. 
+    */
+    .banner .slider {
+        /*Estilos para o slider em telas menores*/
+        width: 160px;
+        /*Rediz a largura do slider*/
+        height: 200px;
+        /*Reduz a altura do slider*/
+        left: calc(50% - 80px);
+        /*Re-centraliza o slider com a nova largura (metade de 160 é 80px)*/
+    }
+
+    .banner .slider .item {
+        /*Estilos para os itens do slider em telas menores*/
+        transform:
+            rotateY(calc((var(--position) - 1) * (360 / var(--quantity)) * 1deg)) translateZ(300px);
+        /*
+            Reduz o valor de `translateZ` de 550px para 300px.
+            Isso faz com que os itens do slider fiquem mais próximos do centro, reduzindo o "diâmetro" do cilindro 3D, adequado para telas menores.
+            */
+    }
+
+    .banner .content h1 {
+        /*Estilos para o título `<h1>` em telas menores*/
+        text-align: center;
+        /*Centraliza o texto horizontalmente*/
+        width: 100%;
+        /*Ocupa 100% da largura disponível*/
+        /*text-shadow: 0 10px 20px #000;*/
+        /*Adiciona uma sombra ao texto, melhorando a legibilidade sobre elementos de fundo*/
+        font-size: 7em;
+        /*Reduz o tamanho da fonte do título (de 16em para 7em)*/
+    }
+
+    .banner .content .author {
+        /*Estilos para o autor em telas menores*/
+        color: #fff;
+        /*Muda a cor do texto para branco*/
+        padding: 20px;
+        /*Adiciona preenchimento*/
+        text-shadow: 0 10px 20px #000;
+        /*Adiciona uma sombra ao texto do autor*/
+        z-index: 2;
+        /*Garante que o autor apareça acima de outrps elementos em telas menores*/
+        max-width: unset;
+        /*Remove a largura máxima definida anteriormente*/
+        width: 100%;
+        /*Ocupa 100% da largura*/
+        text-align: center;
+        /*Centraliza o texto*/
+        padding: 0 30px;
+        /*Ajusta o preenchimento*/
+    }
+
+}
+
+@media screen and (max-width: 767px) {
+
+    /*
+    Media Query: Aplica os estilos dentro deste bloco apenas quando a largura da viewport for igual ou menor que 767 pixels. Isso é para telas de celular.
+    */
+    /* Estilos para os links dentro da div .author */
+    .banner .content .author a {
+        color: #FFFFFF;
+        /* Define a cor do texto para branco puro */
+        text-decoration: none;
+        /* Remove o sublinhado padrão dos links */
+    }
+
+    /* Garante que os links continuem brancos mesmo após serem visitados */
+    .banner .content .author a:visited {
+        color: #FFFFFF;
+    }
+
+    /* Garante que os links continuem brancos quando o mouse passar por cima (hover) */
+    .banner .content .author a:hover {
+        color: #FFFFFF;
+        /* Você pode adicionar outros efeitos aqui para o hover, como um leve text-shadow ou underline */
+        /* text-decoration: underline; */
+        /* Opcional: Adiciona sublinhado de volta no hover */
+    }
+
+    /* Garante que os links continuem brancos quando estiverem ativos (clicando) */
+    .banner .content .author a:active {
+        color: #FFFFFF;
+    }
+
+    .banner .slider {
+        /*Estilos para o slider em telas de celular*/
+        width: 100px;
+        /*Reduz ainda mais a largura*/
+        height: 150px;
+        /*Reduz ainda mais a altura*/
+        left: calc(50% - 50px);
+        /*Re-centraliza com a nova largura*/
+    }
+
+    .banner .slider .item {
+        /*Estilos para os itens do slider em telas de celular*/
+        transform:
+            rotateY(calc((var(--position) - 1) * (360 / var(--quantity)) * 1deg)) translateZ(180px);
+        /*
+            Reduz `translateZ` novamente para 180px, tornando o cilindro 3D ainda menor, mais adequado para telas muito pequenas.
+            */
+    }
+
+    .banner .content h1 {
+        /*Estilos para o título `<h1>` em telas de celular*/
+        font-size: 3.7em;
+        /*Reduz o tamanho da fonte do título mais uma vez (de 7em para 5em)*/
+    }
+
+    .banner .content h1::after {
+        /*
+    Pseudo-elemento `::after`: Cria um elemento virtual *depois* do conteúdo do `<h1>`. É usado aqui pra criar um efeito de contorno no texto.
+    */
+
+        -webkit-text-stroke: 1.3px #f2f2f2;
+        /*
+    Propriedade proprietária (prefixo `-webkit-` para navegadores baseados em Webkit como Chrome, Safari). Cria um contorno de 2px de largura com a cor cinza clara (`#d2d2d2`) ao redor do texto.
+    */
+    }
+}
+
+/* estilo do pop up com o texto*/
+
+#modalTexto {
+    position: fixed;
+    /* Fixa o modal na tela, independentemente da rolagem */
+    z-index: 1000;
+    /* Garante que ele fique na frente de todo o resto (um valor bem alto) */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    /* Adiciona rolagem se o conteúdo for muito grande */
+    background-color: rgba(0, 0, 0, 0.7);
+    /* Fundo semi-transparente escuro */
+    display: flex;
+    /* Para centralizar o conteúdo do modal */
+    justify-content: center;
+    align-items: center;
+    backdrop-filter: blur(5px);
+    /* Efeito de desfoque no fundo */
+}
+
+.modal-conteudo {
+    background-color: #fefefe;
+    /* Fundo branco para o conteúdo */
+    margin: auto;
+    /* Ajuda na centralização */
+    padding: 30px;
+    border: 1px solid #888;
+    width: 80%;
+    /* Largura do modal */
+    max-width: 600px;
+    /* Largura máxima */
+    border-radius: 8px;
+    position: relative;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    animation: fadeIn 0.3s ease-out;
+    /* Animação simples de aparecer */
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fechar-modal {
+    color: #aaa;
+    float: right;
+    /* Alinha o X para a direita */
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    position: absolute;
+    /* Posiciona o X no canto superior direito */
+    top: 10px;
+    right: 15px;
+}
+
+.fechar-modal:hover,
+.fechar-modal:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+#textoDaImagem {
+    font-family: 'Poppins', sans-serif;
+    /* Usando sua fonte Poppins */
+    font-size: 1.1em;
+    line-height: 1.6;
+    color: #333;
+    text-align: left;
+    /* Alinha o texto à esquerda dentro do modal */
+    margin-top: 20px;
+    /* Espaço abaixo do botão fechar */
+}

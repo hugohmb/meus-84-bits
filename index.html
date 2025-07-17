@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meus 84Bits</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+        integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="estilo.css">
+    <style>
+        * {
+            /*Seletor universal (*): Aplica estilo a *todos* os elementos html na página.*/
+            margin: 0;
+            /*Remove a margem externa padrão de todos os elementos. Isso ajuda a controlar o espaçamento.*/
+            padding: 0;
+            /*Remove o preenchimento interno (padding) padrão de todos os elementos. Isso também ajuda a controlar o espaçamento.*/
+            box-sizing: border-box;
+            /*Define como a largura e altura de um elemento são calculadas.
+            - `content-box` (padrão): Largura e altura incluem apenas o conteúdo. Padding e borda são adicionados à largura/altura total.
+            - `border-box`: Largura e altura incluem conteúdo, padding e borda. Isso torna o dimensionamento de elementos muito mais intuitivo e previsível, especialmente em loyouts responsivos. É uma prática muito comum e recomendada.*/
+        }
+
+        body {
+            /*Estilos aplicados ao elemento `<body>`, que representa o conteúdo visível de toda a página HTML.*/            
+            background-image:                
+                /*Define uma imagem de fundo (ou gradiente, neste caso). Aqui, são dois gradientes lineares repetidos, criando um efeito de grade.*/
+                repeating-linear-gradient(
+                    /*Primeiro gradiente linear repetido*/
+                    to right, transparent 0 100px,
+                    /*Cria uma área transparente de 0 a 100px. `to right`: A direita do gradiente é da esquerda para a direita.*/
+                    #25283b22 100px 101px
+                    /*Cia uma linha fina (1px) de cor cinza escuro semi-transparente (#25283b com 22% de opacidade) começando em 100px e terminando em 101px. Isso forma as linhas verticais da grade.*/
+                ),
+                repeating-linear-gradient(
+                    /*Segundo gradiente linear repetido*/
+                    to bottom, transparent 0 100px,
+                    /*Cria uma área transparente de 0 a 100px `to bottom`: A direção do gradiente é de cima para baixo*/
+                    #25283b22 100px 101px
+                    /*Cria uma linha fina (1px) de cor cinza escuro semi-transparente começando em 100px e terminando em 101px. Isso forma as linhas horizontais da grade.*/
+                ),
+                linear-gradient(to top, #7222db, #ffffff);
+            /*A combinação dos dois `repeating-linear-gradient` cria um padrão de grade sutil no fundo da página. 0 `22` no final do código hexadecimal (#25283b22) representa o nal alfa (opacidade) em hexadecimal (00 é totalmente transparente, FF é totalmente opaco).*/
+        }
+
+        body::before {
+            /*Pseudo-elemento `::before`: Cria um elemento virtual antes do conteúdo de `<body>`. É frequentemente usado para adicionar ícones, conteúdo gerado ou, como neste caso, elementos de fundo.*/
+            position: absolute;
+            /*Posicionamento absoluto em relação ao `body`. Isso permite que você posicione o elemento com `top`, `left`, `right`, `bottom`.*/
+            width: min(1400px, 90vw);
+            /*Define a largura será o menor valor entre 1400 pixels e 90% da largura da viewport (`vw` - viewport width) Isso garante que o elemento não seja larho em telas grandes e seja responsivo em telas menores.*/
+            top: 10%;
+            /*Posiciona a parte superior do elemento 10% abaixo do topo do `body`.*/
+            left: 50%;
+            /*Posiciona a parte esquerda do elemento a 50% da esquerda do `body`.*/
+            height: 90%;
+            /*Define a altura do pseudo-elemento para 90% da altura do `body`.*/
+            transform: translateX(-50%);
+            /*Move o elemento horizontalmente em -50% da sua própria largura. Combinado com `left: 50%`, isso centraliza o elemento horizontalmente.*/
+            content: '';
+            /*O pseudo-elemento `::before` *deve* ter a propriedade `content`,mesmo que vazia, para ser renderizado.*/
+            background-image: url(images/bg.png);
+            /*Define immagem de fundo para este pseudo-elemento.*/
+            background-size: 100%;
+            /*A imagem de fundo cobrirá 100% de largura do elemento.*/
+            background-repeat: no-repeat;
+            /*Impede que a imagem de fundo se repita.*/
+            background-position: top center;
+            /*Posiciona a imgem de fundo no topo e centralizaa horizontalmente.*/
+            pointer-events: none;
+            /*Faz com que o pseudo-elemento não responda a eventos de mouse (cliques, etc.). Isso é útil para elementos puramente decorativos que não devem interferir na interação do usuário com o conteúdo subjacente.*/
+        }
+    </style>
+    <link rel="stylesheet" href="estilo.css">
+</head>
+
+<body>
+
+    <div id="modalTexto" style="display:none;">
+        <div class="modal-conteudo">
+            <span class="fechar-modal">&times;</span>
+            <p id="textoDaImagem"></p>
+        </div>
+    </div>
+
+    <div class="banner">
+        <div class="slider" style="--quantity: 10">
+            <div class="item" style="--position: 1">
+                <img src="images/jogo_1.jpg" alt="Descrição Dragão 1"
+                    data-texto="Pitfall! foi um dos primeiros jogos que joguei na vida. Lembro bem da sensação que ele me passava: eu me sentia dentro de um filme do Indiana Jones. É um dos meus jogos favoritos do Atari.">
+            </div>
+            <div class="item" style="--position: 2">
+                <img src="images/jogo_2.jpg" alt="Descrição Dragão 2"
+                    data-texto="Mario Bros. foi um marco pra mim. Lembro de jogá-lo em um famiclone da minha tia e ficar apaixonado pela jogabilidade e a grandiosidade desse jogo. Era algo inimaginável pra época em que foi lançado.">
+            </div>
+            <div class="item" style="--position: 3">
+                <img src="images/jogo_3.jpg" alt="Descrição Dragão 3"
+                    data-texto="Aaah, Sonic! O Sonic 1 do Master System foi um dos jogos que mais joguei na infância. Porém, o Sonic 2 me fez babar em cima de um Mega Drive no final dos anos 90. As cores, o som, a velocidade! Se tornou o meu jogo favorito do console com muita facilidade.">
+            </div>
+            <div class="item" style="--position: 4">
+                <img src="images/jogo_4.jpg" alt="Descrição Dragão 1"
+                    data-texto="Tá aí um jogo que eu tinha medo até de ver outras pessoas jogando: Resident Evil... Eu ficava tenso na locadora, vendo outras pessoas jogarem, e não tinha coragem de encostar no controle. Só me arrisquei muito tempo depois, só pra comprovar que eu ainda era um cagão.">
+            </div>
+            <div class="item" style="--position: 5">
+                <img src="images/jogo_5.jpg" alt="Descrição Dragão 2"
+                    data-texto="Age of Empires foi um marco na vida dos jogadores de RTS... mas o Age 2 me fez escalonar minha nerdice! Era muito desafiador criar redes Hamachi para conseguir jogar com meus amigos que viviam em outras cidades. Isso tudo depois de ainda ter que crackear o jogo! Kkkk.">
+            </div>
+            <div class="item" style="--position: 6">
+                <img src="images/jogo_6.jpg" alt="Descrição Dragão 3"
+                    data-texto="GTA San Andreas me consumiu tantas horas em uma época em que eu já nem era tão gamer assim. Mas era impossível não ligar o PS2 no sábado à tarde e passar algumas longas horas causando em Los Santos.">
+            </div>
+            <div class="item" style="--position: 7">
+                <img src="images/jogo_7.jpg" alt="Descrição Dragão 1"
+                    data-texto="Aqui todo o meu vício por MMORPG foi elevado a um nível inimaginável. Nesse momento nasceu o Hugo Fandangueiro, que entrava no jogo na sexta à noite e só saía no domingo à noite. Mas também, com uma guilda de mais de 10 pessoas jogando junto, não tinha grupo da Aliança que tankava a gente!">
+            </div>
+            <div class="item" style="--position: 8">
+                <img src="images/jogo_8.jpg" alt="Descrição Dragão 2"
+                    data-texto="MGS chegou sorrateiramente na minha vida, como um espião escondido dentro de uma caixa de papelão vindo de um canto escuro. Rapidamente, aquela maluquice e as inovações que o Kojima criava nesse universo me fizeram ficar alucinado nessa franquia. E convenhamos: tem ROBÔ GIGANTE! Como não gostar?">
+            </div>
+            <div class="item" style="--position: 9">
+                <img src="images/jogo_9.jpg" alt="Descrição Dragão 3"
+                    data-texto="Mais uma vez o Kojimão entregando loucuras, inovação e um jogo fora da curva. Sem falar que esse aqui veio em um momento da vida que me fez conectar de tal forma, que hoje é um dos meus jogos favoritos da vida.">
+            </div>
+            <div class="item" style="--position: 10">
+                <img src="images/jogo_10.jpg" alt="Descrição Dragão 3"
+                    data-texto="Meu primeiro Souls de verdade. Depois de tentar e tentar diversas vezes outros Souls (DS3, Bloodborne), eu consegui me conectar de vez nesse universo através dessa maravilha. O jogo tem quase o equilíbrio perfeito para quem está começando... Eu disse quase... porque só ter uma bonfire no mapa é osso!">
+            </div>
+        </div>
+
+        <div class="content">
+            <h1 data-content="MEUS 84 BITS">
+                MEUS 84 BITS
+            </h1>
+            <div class="author">
+
+                <h2>HUGO HMB</h2>
+
+                <p><b>REDES</b></p>
+
+                <p>
+                    <a href="https://www.twitch.tv/meus84bits" target="_blank">
+                        <i class="fa-brands fa-twitch"></i>Twitch</a><br>
+                </p>
+
+                <p>
+                    <a href="https://www.youtube.com/@Meus84Bits" target="_blank">
+                        <i class="fa-brands fa-youtube"></i>Youtube</a><br>
+                </p>
+
+                <p>
+                    <a href="https://www.instagram.com/meus84bits/" target="_blank">
+                        <i class="fa-brands fa-instagram"></i> Instagram
+                    </a><br>
+                </p>
+
+            </div>
+            <div class="model"></div>
+        </div>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+<div id="modalBoasVindas" class="modal-boas-vindas">
+    <div class="modal-conteudo">
+        <span class="fechar-modal-boas-vindas">&times;</span>
+        <h2>Bem-vindo(a) aos Meus 84 Bits!</h2>
+        <p>Aqui você vai encontrar um resumo dos jogos que marcaram minha vida e me ajudaram a definir meu gosto por games.</p>
+        <p>Este site também é um hub para acessar as plataformas onde eu crio conteúdo.</p>
+        <p>Curtiu? Então me siga nas redes sociais e vamos trocar uma ideia sobre games!</p>
+        <div class="redes-sociais-modal">
+            <a href="https://www.twitch.tv/meus84bits" target="_blank" title="Twitch"><i class="fa-brands fa-twitch"></i></a>
+            <a href="https://www.youtube.com/@Meus84Bits" target="_blank" title="YouTube"><i class="fa-brands fa-youtube"></i></a>
+            <a href="https://www.instagram.com/meus84bits/" target="_blank" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+        </div>
+    </div>
+</div>
+
+</html>
