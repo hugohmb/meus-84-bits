@@ -11,14 +11,21 @@ Pop-up de Boas-Vindas: Uma modal inicial apresenta o site e convida os visitante
 Hub de Conteúdo: Acesse facilmente minhas plataformas de streaming e redes sociais diretamente da página.
 
 🚀 Tecnologias Utilizadas Este projeto é desenvolvido com tecnologias web fundamentais:
+
 HTML5: Estrutura semântica do conteúdo.
+
 CSS3: Estilização completa e a criação do impressionante carrossel 3D.
+
 JavaScript (ES6+): Lógica para interação das modais e manipulação do DOM.
 
 🔗 Acesse o Site Você pode visitar e explorar o Meus 84 Bits online através do GitHub Pages:
+
 https://hugohmb.github.io/meus-84-bits
 
 🤝 Conecte-se Comigo! Se você curtiu o projeto, ou quer trocar uma ideia sobre games e desenvolvimento, me siga nas redes:
+
 Twitch: https://www.twitch.tv/meus84bits
-YouTube: https://www.youtube.com/@Meus84Bits (Sugiro atualizar este link com seu canal real)
+
+YouTube: https://www.youtube.com/@Meus84Bits
+
 Instagram: https://www.instagram.com/meus84bits/
