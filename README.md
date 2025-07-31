@@ -19,7 +19,9 @@ CSS3: Estilização completa e a criação do impressionante carrossel 3D.
 
 JavaScript (ES6+): Lógica para interação das modais e manipulação do DOM.
 
-🔗 Acesse o Site Você pode visitar e explorar o Meus 84 Bits online através do GitHub Pages:
+🔗 Acesse o Site
+
+Você pode visitar e explorar o Meus 84 Bits online através do GitHub Pages:
 
 https://hugohmb.github.io/meus-84-bits
 
