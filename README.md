@@ -1,3 +1,4 @@
+![Hub de Conteúdo](https://github.com/hugohmb/meus-84-bits/blob/main/Captura%20de%20tela%202025-07-31%20154056.png?raw=true)
 Meus 84 Bits 🎮 Sobre o Projeto Meus 84 Bits é um site pessoal desenvolvido para celebrar e revisitar os jogos que marcaram minha vida e ajudaram a moldar meu gosto por games ao longo dos anos.
 
 Mais do que uma simples retrospectiva, o projeto serve como um hub central para minhas plataformas de criação de conteúdo e uma demonstração prática de técnicas de desenvolvimento web.
